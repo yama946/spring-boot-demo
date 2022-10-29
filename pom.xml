@@ -11,14 +11,15 @@
     </parent>
 
     <groupId>com.yama.demo</groupId>
-    <artifactId>spring-boot-rabbitmq</artifactId>
+    <artifactId>spring-boot-demo</artifactId>
     <version>0.0.1-SNAPSHOT</version>
 
-    <name>spring-boot-rabbitmq</name>
-    <description>rabbitmq学习样例</description>
+    <name>spring-boot-demo</name>
+    <description>spring boot继承组件以及样例,作为项目聚合父工程</description>
 
     <modules>
-        <module>rabbitmq-demo</module>
+        <module>spring-boot-rabbitmq</module>
+        <module>mysql-read-write</module>
     </modules>
 
     <build>

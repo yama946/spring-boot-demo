@@ -56,10 +56,18 @@ public class RecieveMsgRabbitListener {
     public void recieveMessage(Person person, Message message, Channel channel) throws InterruptedException, IOException {
         //使用发送消息类型，直接接收消息
         log.debug(person.toString());
-        log.debug("原生消息整体："+message);
+        log.info("原生消息整体："+message);
         byte[] body = message.getBody();
         log.debug("原生消息体:"+new String(body));
         MessageProperties messageProperties = message.getMessageProperties();
+        /**
+         * MessageProperties [headers={spring_listener_return_correlation=6e91288c-024c-4017-9da2-37e471d4fbec,
+         * spring_returned_message_correlation=1377ecd4-fcad-40c6-97d7-16efc619fd65,
+         * __TypeId__=com.yama.demo.rabbitmq.entity.Person}, contentType=application/json,
+         * contentEncoding=UTF-8, contentLength=0, receivedDeliveryMode=PERSISTENT, priority=0,
+         * redelivered=false, receivedExchange=demo.exchange.direct, receivedRoutingKey=demo.queue,
+         * deliveryTag=1, consumerTag=amq.ctag-5MKhmxKO5TBWyrrHESfGOQ, consumerQueue=demo.queue]
+         */
         log.debug("原生消息参数："+messageProperties);
         //模拟消息处理过程
         Thread.sleep(10000l);
